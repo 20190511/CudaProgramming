@@ -10,7 +10,7 @@
 #define MAX_BLOCKS 1024
 
 __global__ void cudaAdd(int* _a, int* _b, int* _c) {
-    int tid = threadIdx.x + blockIdx.x * MAX_BLOCKS;
+    int tid = threadIdx.x + blockIdx.x * blockDim.x;
 
     _c[tid] = _a[tid] + _b[tid];
 }
